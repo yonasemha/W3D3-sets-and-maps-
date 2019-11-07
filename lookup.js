@@ -6,14 +6,14 @@
 //   Hint: use Map lookup.
 
 function checkForSum(numList, numZ) {
-    let sum = 0;
-    for (let key of numList.keys()) {
-        sum += sum + key;
+    let myMap = new Map();
+    for (let num of numList) {
+        myMap.set(num, true);
     }
-    if (sum === numZ) {
-        return true;
-    } else {
-        return false;
+    for(let num of numList){
+       if(myMap.get(numZ -num)){
+           return true;
+       }
     }
-
+    return false;
 }
